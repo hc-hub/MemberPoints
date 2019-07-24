@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../themes/default/easyui.css" rel="stylesheet" />
+    <link href="../themes/icon.css" rel="stylesheet" />
+    <link href="../JqueryEasyui/demo/demo.css" rel="stylesheet" />
+    <script src="../script/jquery.min.js"></script>
+    <script src="../script/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        $.messager.alert('警告', '警告消息');
+        $.messager.confirm('确认', '您确认想要删除记录吗？', function (r) {
+            if (r) {
+                alert('确认删除');
+            }
+        });
+    </script>
+</body>
+</html>

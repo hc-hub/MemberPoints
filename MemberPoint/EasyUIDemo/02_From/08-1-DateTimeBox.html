@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="../themes/default/easyui.css" rel="stylesheet" />
+    <link href="../themes/icon.css" rel="stylesheet" />
+    <link href="../JqueryEasyui/demo/demo.css" rel="stylesheet" />
+    <script src="../script/jquery.min.js"></script>
+    <script src="../script/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <input class="easyui-datetimebox" name="birthday"
+           data-options="required:true,showSeconds:false" value="3/4/2010 2:3" style="width:150px">  
+
+    <h2>Display Seconds显示到秒</h2>
+    <p>The user can decide to display seconds part or not.</p>
+    <div style="margin:20px 0;">
+        <span>Show Seconds: </span>
+        <input type="checkbox" checked onchange="$('#dt').datetimebox({showSeconds:$(this).is(':checked')})">
+    </div>
+    <input id="dt" class="easyui-datetimebox" style="width:200px">
+
+
+    <h2>Fluid DateTimeBox流式日期时间框</h2>
+    <p>This example shows how to set the width of DateTimeBox to a percentage of its parent container.</p>
+    <div style="margin:20px 0;"></div>
+    <p>width: 50%</p>
+    <input class="easyui-datetimebox" style="width:50%">
+    <p>width: 30%</p>
+    <input class="easyui-datetimebox" style="width:30%">
+
+
+    <h2>Basic DateTimeBox基础日期时间框</h2>
+    <p>Click the calendar image on the right side.</p>
+    <div style="margin:20px 0;"></div>
+    <input class="easyui-datetimebox" required style="width:200px">
+
+
+    <h2>Initialize Value for DateTime日期时间框的初始化值</h2>
+    <p>The value is initialized when DateTimeBox has been created.</p>
+    <div style="margin:20px 0;"></div>
+    <input class="easyui-datetimebox" value="10/11/2012 2:3:56" style="width:200px">
+</body>
+</html>

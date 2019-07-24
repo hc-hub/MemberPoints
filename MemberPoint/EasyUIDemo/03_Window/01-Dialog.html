@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../themes/default/easyui.css" rel="stylesheet" />
+    <link href="../themes/icon.css" rel="stylesheet" />
+    <link href="../JqueryEasyui/demo/demo.css" rel="stylesheet" />
+    <script src="../script/jquery.min.js"></script>
+    <script src="../script/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div id="cc" class="easyui-dialog" title="My Dialog" style="width:400px;height:200px;"
+         data-options="iconCls:'icon-save',resizable:true,modal:true">
+        Dialog Content.
+    </div>  
+
+    <div id="dd">Dialog Content.</div> 
+    <script type="text/javascript">
+        $('#dd').dialog({
+            title: 'My Dialog',
+            width: 400,
+            height: 200,
+            closed: false,
+            method:'get',
+            cache: false,
+            href: '/02_Index.html',
+            modal: true
+        });
+        $('#dd').dialog('refresh', 'login.htm');
+    </script>
+</body>
+</html>

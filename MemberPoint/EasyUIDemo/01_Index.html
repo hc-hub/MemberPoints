@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>后台管理主页面</title>
+    <link rel="stylesheet" type="text/css" href="/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/themes/icon.css">
+    <!--<link rel="stylesheet" type="text/css" href="/themes/marker.css" />-->
+    <script type="text/javascript" src="/script/jquery.min.js"></script>
+    <script type="text/javascript" src="/script/jquery.easyui.min.js"></script>
+    <meta charset="utf-8" />
+</head>
+<body id="cc" class="easyui-layout" style="width:100%;height:100%;">
+    <div class="mar-header" data-options="region:'north',split:true">
+        <div class="mar-header-left">
+            <h1>超市管理系统</h1>
+        </div>
+        <div class="mar-header-right">
+            <p><strong class="easyui-tooltip" title="2条未读消息">admin</strong>，欢迎您！</p>
+            <p><a href="#">网站首页</a>|<a href="#">支持论坛</a>|<a href="#">帮助中心</a>|<a href="#">安全退出</a></p>
+        </div>
+    </div>
+    <div class="mar-footer" data-options="region:'south',split:true">
+        &copy;1992-2017  友情链接~~~~~~~
+    </div>
+    <!--右边部分暂时隐藏<div data-options="region:'east',iconCls:'icon-reload',title:'East',split:true">
+    </div>-->
+    <div class="mar-sidebar" data-options="region:'west',title:'导航菜单',split:true">
+        <div id="aa" class="easyui-accordion">
+            <div title="商品管理" data-options="iconCls:'icon-application-cascade'" style="overflow: auto; padding: 10px;">
+                <ul class="mar-side-tree easyui-tree">
+                    <li iconCls="icon-users">
+                        <a href="javascript:void(0)" data-icon="icon-users" data-link="GoodsList.html" iframe="1">商品列表</a>
+                    </li>
+                    <li iconCls="icon-user-group">
+                        <a href="javascript:void(0)" data-icon="icon-user-group" data-link="GoodsList.html" iframe="1">添加商品</a>
+                    </li>
+                    <li iconCls="icon-book">
+                        <a href="javascript:void(0)" data-icon="icon-book" data-link="GoodsList.html" iframe="1">编辑商品</a>
+                    </li>
+                    <li iconCls="icon-cog">
+                        <a href="javascript:void(0)" data-icon="icon-cog" data-link="GoodsList.html" iframe="1">删除商品</a>
+                    </li>
+                </ul>
+            </div>
+            <div title="商品类别管理" data-options="iconCls:'icon-application-cascade'" style="overflow: auto; padding: 10px;">
+                <ul class="mar-side-tree easyui-tree">
+                    <li iconCls="icon-users">
+                        <a href="javascript:void(0)" data-icon="icon-users" data-link="ProTypeList.html" iframe="1">商品类别列表</a>
+                    </li>
+                    <li iconCls="icon-user-group">
+                        <a href="javascript:void(0)" data-icon="icon-user-group" data-link="ProTypeList.html" iframe="1">添加商品类别</a>
+                    </li>
+                    <li iconCls="icon-book">
+                        <a href="javascript:void(0)" data-icon="icon-book" data-link="ProTypeList.html" iframe="1">编辑商品类别</a>
+                    </li>
+                    <li iconCls="icon-cog">
+                        <a href="javascript:void(0)" data-icon="icon-cog" data-link="ProTypeList.html" iframe="1">删除商品类别</a>
+                    </li>
+                </ul>
+            </div>
+            <div title="库存管理" data-options="iconCls:'icon-application-cascade'" style="overflow: auto; padding: 10px;">
+                <ul class="mar-side-tree easyui-tree">
+                    <li iconCls="icon-users">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="GoodsList.html" iframe="1">库存列表</a>
+                    </li>
+                    <li iconCls="icon-user-group">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="GoodsList.html" iframe="1">添加库存</a>
+                    </li>
+                    <li iconCls="icon-book">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="GoodsList.html" iframe="1">编辑库存</a>
+                    </li>
+                    <li iconCls="icon-cog">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="GoodsList.html" iframe="1">删除库存</a>
+                    </li>
+                </ul>
+            </div>
+            <div title="用户管理" data-options="iconCls:'icon-application-cascade'" style="overflow: auto; padding: 10px;">
+                <ul class="mar-side-tree easyui-tree">
+                    <li iconCls="icon-users">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="UserList.html" iframe="1">用户列表</a>
+                    </li>
+                    <li iconCls="icon-user-group">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="UserList.html" iframe="1">添加用户</a>
+                    </li>
+                    <li iconCls="icon-book">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="UserList.html" iframe="1">编辑用户</a>
+                    </li>
+                    <li iconCls="icon-cog">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="UserList.html" iframe="1">删除用户</a>
+                    </li>
+                </ul>
+            </div>
+            <div title="角色管理" data-options="iconCls:'icon-application-cascade'" style="overflow: auto; padding: 10px;">
+                <ul class="mar-side-tree easyui-tree">
+                    <li iconCls="icon-users">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="RoleList.html" iframe="1">角色列表</a>
+                    </li>
+                    <li iconCls="icon-user-group">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="RoleList.html" iframe="1">添加角色</a>
+                    </li>
+                    <li iconCls="icon-book">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="RoleList.html" iframe="1">编辑角色</a>
+                    </li>
+                    <li iconCls="icon-cog">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="RoleList.html" iframe="1">删除角色</a>
+                    </li>
+                </ul>
+            </div>
+            <div title="系统管理" data-options="iconCls:'icon-application-cascade'" style="overflow: auto; padding: 10px;">
+                <ul class="mar-side-tree easyui-tree">
+                    <li iconCls="icon-users">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="GoodsList.html" iframe="1">查询日志</a>
+                    </li>
+                    <li iconCls="icon-user-group">
+                        <a href="javascript:void(0)" data-icon="icon-chart-organisation" data-link="GoodsList.html" iframe="1">系统设置</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'center'" style="background:#eee;">
+        <div id="main" class="easyui-tabs" fit="true" style="width:500px;height:250px;">
+            <div title="主页" style="padding:20px;display:none;" data-options="iconCls:'icon-tip'">
+                欢迎进入超市管理系统！
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('.mar-side-tree  a').bind('click', function () {
+                var title = $(this).text();
+                var href = $(this).attr('data-link')
+                var iframe = $(this).attr('iframe') == 1 ? true : false;
+                var iconCls = $(this).attr('data-icon')
+                addTab(title, href, iframe, iconCls);
+            })
+        })
+        /**
+		* Name 添加菜单选项
+		* Param title 名称
+		* Param href 链接
+		* Param iconCls 图标样式
+		* Param iframe 链接跳转方式（true为iframe，false为href）
+		*/
+        function addTab(title, href, iframe, iconCls) {
+            var tabPanel = $('#main');
+            if (tabPanel.tabs('exists', title)) {
+                tabPanel.tabs('select', title);
+            } else {
+                var content = '<iframe scrolling="auto" frameborder="0" src="' + href + '" style="width:100%;height:100%"></iframe>'
+                if (iframe) {
+                    tabPanel.tabs('add', {
+                        title: title,
+                        content: content,
+                        closable: true,
+                        iconCls: iconCls,
+                        fit: true,
+                    });
+                } else {
+                    tabPanel.tabs('add', {
+                        title: title,
+                        closable: true,
+                        iconCls: iconCls,
+                        fit: true,
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html>

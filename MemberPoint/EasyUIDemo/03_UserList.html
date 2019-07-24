@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/themes/icon.css">
+    <script type="text/javascript" src="/script/jquery.min.js"></script>
+    <script type="text/javascript" src="/script/jquery.easyui.min.js"></script>
+    <script src="script/easyui-lang-zh_CN.js"></script>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+        $(function () {
+            $("#dg").datagrid({
+                fitColumns: true,//真正的自动展开/收缩列的大小，以适应网格的宽度，防止水平滚动。
+                toolbar: "#tb", //toolbar:通过选择器指定的工具栏。
+                pagination: true, //pagination:如果为true，则在DataGrid控件底部显示分页工具栏。
+                //fit: true, //fit:当设置为true的时候面板大小将自适应父容器。
+                singleSelect: true, //如果为true，则只允许选择一行。
+                rownumbers: true, //如果为true，则显示一个行号列。
+                method: "get",
+                url: "/05_DataGridTree/userlist.json", //url:设置能够返回JSON数据的Action所对应的路径
+                columns: [[
+                {
+                    field: 'itemid', title: '商品id', width: 80,
+                    //formatter: function (value, row) {
+                    //    return row.itemid;
+                    //}
+                },
+                {
+                    field: 'productname', title: '商品名称', width: 120,
+                    //formatter: function (value, row) {
+                    //    return row.productname;
+                    //}
+                },
+                { field: 'listprice', title: '价钱', width: 80, align: 'right' },
+                { field: 'unitcost', title: '单位价格', width: 80, align: 'right' },
+                ]]
+                //columns: [[
+                //    {
+                //        field: 'productid', title: '用户编号', width: 150, align: "center",
+                //        formatter: function (value, row) {
+                //            return row.productid;
+                //        }
+                //    }//,
+                //    //{
+                //    //    field: 'productname', title: '登录名', width: 150, align: "center",
+                //    //    //formatter: function (value, row) {
+                //    //    //    return row.User.U_LoginName;
+                //    //    //}
+                //    //},
+                //    //{
+                //    //    field: 'unitcost', title: '真实姓名', width: 150, align: "center",
+                //    //    //formatter: function (value, row) {
+                //    //    //    return row.User.U_RealName;
+                //    //    //}
+                //    //},
+                //    //{
+                //    //    field: 'status', title: '性别', width: 150, align: "center",
+                //    //    //formatter: function (value, row) {
+                //    //    //    return row.User.U_Sex;
+                //    //    //}
+                //    //},
+                //    //{
+                //    //    field: 'listprice', title: '联系电话', width: 150, align: "center",
+                //    //    //formatter: function (value, row) {
+                //    //    //    return row.User.U_Telephone;
+                //    //    //}
+                //    //},
+                //    //{
+                //    //    field: 'attr1', title: '用户角色', width: 150, align: "center",
+                //    //    //formatter: function (value, row) {
+                //    //    //    return row.CategoryItem.CI_Name;
+                //    //    //}
+                //    //},
+                //    //{
+                //    //    field: 'itemid', title: '是否可以删除', width: 150, align: "center",
+                //    //    //formatter: function (value, row) {
+                //    //    //    if (row.User.U_CanDelete) {
+                //    //    //        return "是";
+                //    //    //    } else {
+                //    //    //        return "否";
+                //    //    //    }
+                //    //    //}
+                //    //}
+                //]]
+            });
+            $(".Delete").click(function () {
+                var row = $("#dg").datagrid("getSelected");
+                if (row != null) {
+                    if (row.itemid) {
+                        $.messager.confirm("提示", "是否删除该条用户信息", function (r) {
+                            if (r) {
+                                $.get("/User/Delete", { id: row.User.U_ID }, function (data) {
+                                    $.messager.alert("提示", data, "info");
+                                    $("#dg").datagrid("reload");
+                                });
+                            }
+                        });
+                    } else {
+                        $.messager.alert("提示", "该用户不能删除", "warning");
+                    }
+                } else {
+                    $.messager.alert("提示", "请选择需要删除的行", "warning");
+                }
+            });
+            $(".Update").click(function () {
+                var row = $("#dg").datagrid("getSelected");
+                if (row != null) {
+                    $("#dlg").dialog({ width: 400, height: 400 }).dialog("setTitle", "修改店铺").dialog("open");
+                    $("#frm1").attr("src", "update.html");
+                } else {
+                    $.messager.alert("提示", "请选择需要编辑的行", "warning");
+                }
+            });
+            $(".Search").click(function () {
+                $('#dg').datagrid('load', {
+                    U_LoginName: $('#txtU_LoginName').val(),
+                    U_RealName: $('#txtU_RealName').val(),
+                    U_Telephone: $('#txtU_Telephone').val()
+
+                });
+            });
+            $(".Insert").click(function () {
+                $('#dlg').dialog({ width: 400, height: 400 })
+                         .dialog("setTitle", "添加用户")
+                         .dialog("open");
+                $("#frm1").attr("src", "add.html");
+            })
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <table id="dg"></table>
+        <div id="tb" style="padding:5px;height:auto">
+            <div style="margin-bottom:5px">
+                <a href="#" class="easyui-linkbutton Insert" iconCls="icon-add">新增</a>
+                <a href="#" class="easyui-linkbutton Update" iconCls="icon-edit">修改</a>
+                <a href="#" class="easyui-linkbutton Delete" iconCls="icon-remove">删除</a>
+            </div>
+            <div>
+                登录名：<input id="txtU_LoginName" type="text" />
+                真实姓名：<input id="txtU_RealName" type="text" />
+                联系电话：<input id="txtU_Telephone" type="text" />
+                <a href="#" class="easyui-linkbutton Search" iconCls="icon-search">查询</a>
+            </div>
+        </div>
+        <div id="dlg" class="easyui-dialog" data-options="iconCls:'icon-save',resizable:true,modal:true,closed:true">
+            <iframe id="frm1" width="99%" height="99%" frameborder="0"></iframe>
+        </div>
+    </form>
+</body>
+</html>

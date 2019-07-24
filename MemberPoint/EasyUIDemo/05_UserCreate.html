@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/themes/icon.css">
+    <script type="text/javascript" src="/script/jquery.min.js"></script>
+    <script type="text/javascript" src="/script/jquery.easyui.min.js"></script>
+	<meta charset="utf-8" />
+    <script type="text/javascript">
+        $(function () {
+            $('#dg').datagrid({
+                url: '/05_DataGridTree/datagrid_data1.json',
+                method: "get",
+                columns: [[
+                 { field: 'itemid', title: '商品id', width: 80 },
+                 { field: 'productname', title: '商品名称', width: 120 },
+                 { field: 'listprice', title: '价钱', width: 80, align: 'right' },
+                 { field: 'unitcost', title: '单位价格', width: 80, align: 'right' },
+                ]]
+            });
+        })
+    </script>
+</head>
+<body>
+    <table id="dg"></table>  
+</body>
+</html>

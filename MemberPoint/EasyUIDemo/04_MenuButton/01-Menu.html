@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../themes/default/easyui.css" rel="stylesheet" />
+    <link href="../themes/icon.css" rel="stylesheet" />
+    <link href="../JqueryEasyui/demo/demo.css" rel="stylesheet" />
+    <script src="../script/jquery.min.js"></script>
+    <script src="../script/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <div id="mm" class="easyui-menu" style="width:120px;">
+        <div>New</div>
+        <div>
+            <span>Open</span>
+            <div style="width:150px;">
+                <div><b>net</b></div>
+                <div>java</div>
+                <div>C#</div>
+            </div>
+        </div>
+        <div data-options="iconCls:'icon-save'">Save</div>
+        <div class="menu-sep"></div>
+        <div>Exit</div>
+        <div>
+            <span>demo</span>
+            <div style="width:150px;">
+                <div><b>net</b></div>
+                <div>java</div>
+                <div>C#</div>
+            </div>
+        </div>
+    </div>  
+    <script type="text/javascript">
+        $(function () {
+            $("#mm").menu('show', {
+                top: 100,
+                left: 200
+            });
+            $("#mm").menu({
+                onclick: function (item) {
+
+                }
+            })
+        })
+    </script>
+</body>
+</html>

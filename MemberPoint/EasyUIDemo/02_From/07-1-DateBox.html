@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="../themes/default/easyui.css" rel="stylesheet" />
+    <link href="../themes/icon.css" rel="stylesheet" />
+    <link href="../JqueryEasyui/demo/demo.css" rel="stylesheet" />
+    <script src="../script/jquery.min.js"></script>
+    <script src="../script/jquery.easyui.min.js"></script>
+</head>
+<body>
+  
+    <input id="ss" value="2">  
+    <script type="text/javascript">
+        $(function () {
+            $('#ss').spinner({
+                required: true,
+                increment: 10
+            });
+        })
+    </script>
+
+
+    
+    <h2>Validate DateBox日期框验证</h2>
+    <p>When the selected date is greater than specified date. The field validator will raise an error.</p>
+    <div style="margin:20px 0;"></div>
+    <input class="easyui-datebox" required data-options="validType:'md[\'10/11/2012\']'"></input>
+    <script>
+        $.extend($.fn.validatebox.defaults.rules, {
+            md: {
+                validator: function (value, param) {
+                    var d1 = $.fn.datebox.defaults.parser(param[0]);
+                    var d2 = $.fn.datebox.defaults.parser(value);
+                    return d2 <= d1;
+                },
+                message: 'The date must be less than or equals to {0}.'
+            }
+        })
+    </script>
+    <br />
+    <br />
+    <h2>DateBox Events日期框事件</h2>
+    <p>Click the calendar image on the right side.</p>
+    <div style="margin:20px 0;"></div>
+    <input class="easyui-datebox" data-options="onSelect:onSelect"></input>
+    <div style="margin:10px 0">
+        <span>Selected Date: </span>
+        <span id="result"></span>
+    </div>
+    <script>
+        function onSelect(date) {
+            $('#result').text(date)
+        }
+    </script>
+    <br />
+    <br />
+    <h2>Restrict Date Range in DateBox日期框的日期范围限制</h2>
+    <p>This example shows how to restrict the user to select only ten days from now.</p>
+    <div style="margin:20px 0;"></div>
+    <input id="dd"></input>
+    <script>
+        $(function () {
+            $('#dd').datebox().datebox('calendar').calendar({
+                validator: function (date) {
+                    var now = new Date();
+                    var d1 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                    var d2 = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 10);
+                    return d1 <= date && date <= d2;
+                }
+            });
+        });
+    </script>
+    <br />
+    <br />
+    <h2>DateBox Buttons日期框按钮</h2>
+    <p>This example shows how to customize the datebox buttons underneath the calendar.</p>
+    <div style="margin:20px 0;"></div>
+    <input class="easyui-datebox"></input>
+    <input class="easyui-datebox" data-options="buttons:buttons"></input>
+    <script>
+        var buttons = $.extend([], $.fn.datebox.defaults.buttons);
+        buttons.splice(1, 0, {
+            text: 'MyBtn',
+            handler: function (target) {
+                alert('click MyBtn');
+            }
+        });
+    </script>
+    <br />
+    <br />
+
+    <h2>Basic DateBox基本的日期框</h2>
+    <p>Click the calendar image on the right side.</p>
+    <div style="margin:20px 0;"></div>
+    <input class="easyui-datebox"></input>
+
+    <br />
+    <br />
+    <h2>Date Format日期格式</h2>
+    <p>Different date formats are applied to different DateBox components.</p>
+    <div style="margin:20px 0;"></div>
+    <input class="easyui-datebox"></input>
+    <input class="easyui-datebox" data-options="formatter:myformatter,parser:myparser"></input>
+    <script type="text/javascript">
+        function myformatter(date) {
+            var y = date.getFullYear();
+            var m = date.getMonth() + 1;
+            var d = date.getDate();
+            return y + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d);
+        }
+        function myparser(s) {
+            if (!s) return new Date();
+            var ss = (s.split('-'));
+            var y = parseInt(ss[0], 10);
+            var m = parseInt(ss[1], 10);
+            var d = parseInt(ss[2], 10);
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+                return new Date(y, m - 1, d);
+            } else {
+                return new Date();
+            }
+        }
+    </script>
+    <br />
+    <br />
+    <h2>Fluid DateBox流式日期框</h2>
+    <p>This example shows how to set the width of DateBox to a percentage of its parent container.</p>
+    <div style="margin:20px 0;"></div>
+    <p>width: 50%</p>
+    <input class="easyui-datebox" style="width:50%"></input>
+    <p>width: 30%</p>
+    <input class="easyui-datebox" style="width:30%"></input>
+
+    <br />
+    <br />
+    <h2>Shared Calendar in DateBox日期框的共享日历</h2>
+    <p>Multiple datebox components can share a calendar and use it to pick dates.</p>
+    <div style="margin:20px 0;"></div>
+    <table>
+        <tr>
+            <td>Start Date:</td>
+            <td>
+                <input class="easyui-datebox" data-options="sharedCalendar:'#cc'">
+            </td>
+            <td>End Date:</td>
+            <td>
+                <input class="easyui-datebox" data-options="sharedCalendar:'#cc'">
+            </td>
+        </tr>
+    </table>
+    <div id="cc" class="easyui-calendar"></div>
+</body>
+</html>
