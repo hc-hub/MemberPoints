@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="../themes/default/easyui.css" rel="stylesheet" />
+    <link href="../themes/icon.css" rel="stylesheet" />
+    <link href="../JqueryEasyui/demo/demo.css" rel="stylesheet" />
+    <script src="../script/jquery.min.js"></script>
+    <script src="../script/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <select id="cc" class="easyui-combogrid" name="dept" style="width:250px;"
+            data-options="
+            panelWidth:450,
+            value: 'EST-12',
+            idField:'itemid',
+            textField:'productname',
+            url:'../JqueryEasyui/demo/combogrid/datagrid_data1.json',
+            method:'get',
+            columns:[[
+                {field:'itemid',title:'商品id',width:80},
+				{field:'productname',title:'商品名称',width:120},
+				{field:'listprice',title:'价钱',width:80,align:'right'},
+				{field:'unitcost',title:'单位价格',width:80,align:'right'},
+            ]]
+        "></select>
+
+
+
+
+    <input id="dd" name="dept" value="01" />
+    <script type="text/javascript">
+        $('#dd').combogrid({
+            panelWidth: 450,
+            value: 'EST-12',
+            idField: 'itemid',
+            textField: 'productname',
+            url: '../JqueryEasyui/demo/combogrid/datagrid_data1.json',
+            method:'get',
+            columns: [[
+               { field: 'itemid', title: 'Item ID', width: 80 },
+						{ field: 'productname', title: 'Product', width: 120 },
+						{ field: 'listprice', title: 'List Price', width: 80, align: 'right' },
+						{ field: 'unitcost', title: 'Unit Cost', width: 80, align: 'right' },
+						{ field: 'attr1', title: 'Attribute', width: 200 },
+						{ field: 'status', title: 'Status', width: 60, align: 'center' }
+            ]]
+        });
+
+    </script>
+
+    <h2>Fluid ComboGrid流式组合表格</h2>
+    <p>This example shows how to set the width of ComboGrid to a percentage of its parent container.</p>
+    <div style="margin:20px 0"></div>
+    <p>width: 50%</p>
+    <select class="easyui-combogrid" style="width:50%" data-options="
+			panelWidth: 500,
+			panelMinWidth: '50%',
+			idField: 'itemid',
+			textField: 'productname',
+			url: '/data/datagrid_data1.json',
+			method: 'get',
+			columns: [[
+				{field:'itemid',title:'Item ID',width:80},
+				{field:'productname',title:'Product',width:120},
+				{field:'listprice',title:'List Price',width:80,align:'right'},
+				{field:'unitcost',title:'Unit Cost',width:80,align:'right'},
+				{field:'attr1',title:'Attribute',width:200},
+				{field:'status',title:'Status',width:60,align:'center'}
+			]],
+			fitColumns: true
+		"></select>
+    <p>width: 30%</p>
+    <select class="easyui-combogrid" style="width:30%" data-options="
+			panelWidth: 500,
+			idField: 'itemid',
+			textField: 'productname',
+			url: '/data/datagrid_data1.json',
+			method: 'get',
+			columns: [[
+				{field:'itemid',title:'Item ID',width:80},
+				{field:'productname',title:'Product',width:120},
+				{field:'listprice',title:'List Price',width:80,align:'right'},
+				{field:'unitcost',title:'Unit Cost',width:80,align:'right'},
+				{field:'attr1',title:'Attribute',width:200},
+				{field:'status',title:'Status',width:60,align:'center'}
+			]],
+			fitColumns: true
+		"></select>
+
+    <h2>Multiple ComboGrid多行组合表格</h2>
+    <p>Click the right arrow button to show the DataGrid and select items.</p>
+    <div style="margin:20px 0"></div>
+    <select class="easyui-combogrid" style="width:250px" data-options="
+			panelWidth: 500,
+			multiple: true,
+			idField: 'itemid',
+			textField: 'productname',
+			url: '/data/datagrid_data1.json',
+			method: 'get',
+			columns: [[
+				{field:'ck',checkbox:true},
+				{field:'itemid',title:'Item ID',width:80},
+				{field:'productname',title:'Product',width:120},
+				{field:'listprice',title:'List Price',width:80,align:'right'},
+				{field:'unitcost',title:'Unit Cost',width:80,align:'right'},
+				{field:'attr1',title:'Attribute',width:200},
+				{field:'status',title:'Status',width:60,align:'center'}
+			]],
+			fitColumns: true
+		"></select>
+
+    <h2>Initialize Value for ComboGrid组合表格初始化</h2>
+    <p>Initialize value when ComboGrid is created.</p>
+    <div style="margin:20px 0"></div>
+    <input class="easyui-combogrid" style="width:250px" value="EST-12" data-options="
+			panelWidth: 500,
+			idField: 'itemid',
+			textField: 'productname',
+			url: '/data/datagrid_data1.json',
+			method: 'get',
+			columns: [[
+				{field:'itemid',title:'Item ID',width:80},
+				{field:'productname',title:'Product',width:120},
+				{field:'listprice',title:'List Price',width:80,align:'right'},
+				{field:'unitcost',title:'Unit Cost',width:80,align:'right'},
+				{field:'attr1',title:'Attribute',width:200},
+				{field:'status',title:'Status',width:60,align:'center'}
+			]],
+			fitColumns: true
+		">
+
+
+    <h2>Navigate ComboGrid导航组合表格</h2>
+    <p>Navigate through grid items with keyboard to select an item.</p>
+    <div style="margin:20px 0">
+        <input type="checkbox" checked onchange="$('#cc').combogrid({selectOnNavigation:$(this).is(':checked')})">
+        <span>SelectOnNavigation</span>
+    </div>
+    <select id="cc" class="easyui-combogrid" style="width:250px" data-options="
+			panelWidth: 500,
+			idField: 'itemid',
+			textField: 'productname',
+			url: '/data/datagrid_data1.json',
+			method: 'get',
+			columns: [[
+				{field:'itemid',title:'Item ID',width:80},
+				{field:'productname',title:'Product',width:120},
+				{field:'listprice',title:'List Price',width:80,align:'right'},
+				{field:'unitcost',title:'Unit Cost',width:80,align:'right'},
+				{field:'attr1',title:'Attribute',width:200},
+				{field:'status',title:'Status',width:60,align:'center'}
+			]],
+			fitColumns: true
+		"></select>
+
+    <h2>ComboGrid Actions组合表格控制</h2>
+    <p>Click the buttons below to perform actions.</p>
+    <div style="margin:20px 0">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="getValue()">GetValue</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="setValue()">SetValue</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="disable()">Disable</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="enable()">Enable</a>
+    </div>
+    <input id="dd" class="easyui-combogrid" style="width:250px" data-options="
+			panelWidth: 500,
+			idField: 'itemid',
+			textField: 'productname',
+			url: '/data/datagrid_data1.json',
+			method: 'get',
+			columns: [[
+				{field:'itemid',title:'Item ID',width:80},
+				{field:'productname',title:'Product',width:120},
+				{field:'listprice',title:'List Price',width:80,align:'right'},
+				{field:'unitcost',title:'Unit Cost',width:80,align:'right'},
+				{field:'attr1',title:'Attribute',width:200},
+				{field:'status',title:'Status',width:60,align:'center'}
+			]],
+			fitColumns: true
+		">
+    <script type="text/javascript">
+        function getValue() {
+            var val = $('#dd').combogrid('getValue');
+            alert(val);
+        }
+        function setValue() {
+            $('#dd').combogrid('setValue', 'EST-13');
+        }
+        function disable() {
+            $('#dd').combogrid('disable');
+        }
+        function enable() {
+            $('#dd').combogrid('enable');
+        }
+    </script>
+</body>
+</html>

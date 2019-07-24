@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../themes/default/easyui.css" rel="stylesheet" />
+    <link href="../themes/icon.css" rel="stylesheet" />
+    <link href="../JqueryEasyui/demo/demo.css" rel="stylesheet" />
+    <script src="../script/jquery.min.js"></script>
+    <script src="../script/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <table id="pg" class="easyui-propertygrid" style="width:300px"
+data-options="url:'../JqueryEasyui/demo/propertygrid/propertygrid_data1.json',method:'get',showGroup:true,scrollbarSize:0">
+</table>  
+
+    <table id="pg1" style="width:300px"></table>
+    <script type="text/javascript">
+        $(function () {
+            $('#pg1').propertygrid({
+                url: '../JqueryEasyui/demo/propertygrid/propertygrid_data1.json',
+                method:'get',
+                showGroup: true,
+                scrollbarSize: 0
+            });
+        })
+    </script>
+</body>
+</html>

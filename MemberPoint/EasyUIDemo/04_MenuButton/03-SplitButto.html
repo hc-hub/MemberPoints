@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../themes/default/easyui.css" rel="stylesheet" />
+    <link href="../themes/icon.css" rel="stylesheet" />
+    <link href="../JqueryEasyui/demo/demo.css" rel="stylesheet" />
+    <script src="../script/jquery.min.js"></script>
+    <script src="../script/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <a href="javascript:void(0)" id="sb" class="easyui-splitbutton"
+       data-options="menu:'#mm',iconCls:'icon-ok'" onclick="javascript:alert('ok')">Ok</a>
+    <div id="mm" style="width:100px;">
+        <div data-options="iconCls:'icon-ok'">Ok</div>
+        <div data-options="iconCls:'icon-cancel'">Cancel</div>
+    </div>
+    
+    
+    <a href="javascript:void(0)" id="spb" onclick="javascript:alert('ok')">Ok</a>
+    <div id="dd" style="width:100px;">
+        <div data-options="iconCls:'icon-ok'">Ok</div>
+        <div data-options="iconCls:'icon-cancel'">Cancel</div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#spb').splitbutton({
+                iconCls: 'icon-ok',
+                menu: '#dd'
+            });
+        })
+    </script>
+
+</body>
+</html>

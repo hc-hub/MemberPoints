@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../themes/default/easyui.css" rel="stylesheet" />
+    <link href="../themes/icon.css" rel="stylesheet" />
+    <link href="../JqueryEasyui/demo/demo.css" rel="stylesheet" />
+    <script src="../script/jquery.min.js"></script>
+    <script src="../script/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <a id="btn1" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="alert('我是按钮btn1')">easyuibtn1</a>
+    <a id="btn2" href="#">easyui</a>
+    <script type="text/javascript">
+        $(function () {
+            $("#btn2").linkbutton({
+                iconCls: 'icon-ok'
+            });
+        })
+    </script>
+</body>
+</html>

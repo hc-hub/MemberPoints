@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="../themes/default/easyui.css" rel="stylesheet" />
+    <link href="../themes/icon.css" rel="stylesheet" />
+    <link href="../JqueryEasyui/demo/demo.css" rel="stylesheet" />
+    <script src="../script/jquery.min.js"></script>
+    <script src="../script/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <table class="easyui-datagrid">
+        <thead>
+            <tr>
+                <th data-options="field:'code'">编码</th>
+                <th data-options="field:'name'">名称</th>
+                <th data-options="field:'price'">价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>name1</td>
+                <td>2323</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>name2</td>
+                <td>4612</td>
+            </tr>
+        </tbody>
+    </table>  
+
+    <table class="easyui-datagrid" style="width:400px;height:250px"
+           data-options="url:'../JqueryEasyui/demo/datagrid/datagrid_data1.json',method:'get',fitColumns:true,singleSelect:true">
+        <thead>
+            <tr>
+                <th data-options="field:'productid',width:100">编码</th>
+                <th data-options="field:'productname',width:100">名称</th>
+                <th data-options="field:'unitcost',width:100,align:'right'">价格</th>
+            </tr>
+        </thead>
+    </table> 
+</body>
+</html>

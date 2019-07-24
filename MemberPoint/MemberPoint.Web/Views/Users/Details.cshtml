@@ -1,0 +1,91 @@
+﻿@model MemberPoint.Entity.ViewModel.UsersViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Common.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UsersViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.U_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_LoginName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_LoginName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_RealName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_RealName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_Sex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_Sex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_Telephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_Telephone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_RoleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_RoleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.U_CanDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.U_CanDelete)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
